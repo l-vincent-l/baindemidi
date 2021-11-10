@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <style>
 * {
+  font-family: Gill Sans Extrabold, sans-serif, monospace;
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
   -ms-box-sizing:border-box;
@@ -14,107 +17,290 @@
 }
 
 #main {
-  width:960px;
-  height:1109px;
-  background-size: 40px 40px;
+  max-width: 20rem;
+  min-height: 80vh;
+  background-size: 1rem 1rem;
   background-image:
     linear-gradient(to right, grey 1px, transparent 1px),
     linear-gradient(to bottom, grey 1px, transparent 1px);
-  margin:50px auto;
   position:relative;
-  padding-top:150px;
-  padding-left:160px;
-  padding-right:20px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 12rem;
   overflow:hidden;
   -webkit-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
   -moz-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
   -ms-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
   -o-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
   box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto;
 }
 
-#mode {
-  display: block;
-  height: 38px;
-  width: 118px;
-  line-height: 38px;
-  text-align: center;
-  background-color: pink;
-  margin-top: 12px;
-  margin-left: 161px;
+#main > div:not(:last-child) {
+  margin-top: calc(3rem + 1px);
+}
+
+#logo {
+  margin-top: 3rem;
+  object-fit: contain;
+  width: 100%;
+  height: 9rem;
 }
 
 #description {
+  line-height: 2rem;
   background-color: #fff;
-  text-align: center;
-  width: 598px;
-  margin-top: 42px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin-left: 1px;
-  height: 119px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: calc(22rem - 1px);
+}
+
+#description >  * {
+  margin-top: 0;
+}
+
+#description > h2 {
+  font-weight: 900;
+  font-size: xx-large;
+  margin-bottom: 0;
+  padding-top: 2rem;
+  text-align: center;
+}
+#description > h3 {
+  margin-top: 0;
+  font-weight: 100;
+  font-size: xx-large;
+  margin-bottom: 0;
+  text-align: center;
+}
+#description > h4 {
+  margin-top: 0;
+  text-align: center;
 }
 
 #subdescription {
-  background-color: rgb(223, 233, 137);
+  background-color: #fff7bf;
   text-align: center;
-  width: 439px;
-  margin-top: 0;
-  margin-left: 81px;
-  height: 39px;
-  line-height: 38px;
+
+  line-height: 1rem;
+  margin-left: calc(2rem + 1px);
+  margin-right: 2rem;
+  margin-top: 0 !important;
 }
 
 
-#upcycling {
-  display: block;
-  height: 38px;
-  width: 120px;
-  line-height: 38px;
-  text-align: center;
-  background-color: rgb(155, 183, 221);
-  margin-top: 82px;
-  margin-left: 0px;
-  float: left;
+
+.date {
+  background-size: 6rem;
+  background-image: url("cercle.png"), url("cercle.png"), url("cercle.png"), url("cercle.png");
+  background-repeat: no-repeat;
+  width: 7rem;
+  height: 7rem;
+  font-weight: 900;
 }
 
 #debut {
-  margin-top: 82px;
-  background-image: url("cercle.png"), url("cercle.png"), url("cercle.png"), url("cercle.png");
-  background-position: 40px 40px, 30px 30px, 20px 20px, 10px 10px, 0px 0px;
-  background-repeat: no-repeat;
-  float: left;
-  width: 173px;
-  height: 173px;
+  background-position: 1rem 1rem, 0.66rem 0.66rem, 0.33rem 0.33rem, 0rem 0rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
 }
 
-#sub {
-  margin-top: 40px;
+#fin {
+  background-position: 0rem 0rem, 0.33rem 0.33rem, 0.66rem 0.66rem, 1rem 1rem;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+#dates {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#deco {
+  background-color: #ace9fb;
+}
+
+#upcycling {
+  background-color: #bccce8;
+}
+
+#mode {
+  background-color: #ffd2d7;
+}
+
+
+#tiles {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tiles > div {
+  display: block;
+  text-align: center;
+  line-height: calc(3rem - 1px);
+  font-weight: 900;
+  margin-left: 1px;
+  width: calc(8rem - 1px);
+}
+
+#tiles > div:not(:first-child) {
+  margin-top: calc(2rem + 1px);
+}
+
+#horaires {
+  display: flex;
+  flex-direction: column;
+  background-color: #7fffd4;
+  height: calc(9rem - 1px);
+  width: calc(14rem - 1px);
+  align-items: center;
+  align-self: center;
+  margin-top: 1rem;
+  text-align: center;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+#map {
+  height: 24rem;
+margin-top: 2rem;
+margin-left: 1px;
+}
+
+@media only screen and (min-width: 1000px) {
+  #main {
+    max-width: 81rem;
+    background-size: 3rem 3rem;
+    padding-left: 9rem;
+    padding-right: 9rem;
+  }
+  #description {
+    width: calc(63rem - 1px);
+    height: calc(12rem - 1px);
+  }
+  #description > h2 {
+    padding-top: 3rem;
+  }
+  #subdescription {
+    line-height: 3rem;
+    margin-top: 0 !important;
+    margin-left: calc(6rem + 1px);
+    margin-right: 6rem;
+  }
+  #tiles {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+  #tiles > div  {
+    width: calc(9rem - 1px);
+    margin-top: 0;
+  }
+  #tiles > div:not(:first-child) {
+    margin-top: unset;
+  }
+  #debut {
+    background-position: 2rem 2rem, 1.3rem 1.3rem, 0.6rem 0.6rem, 0rem 0rem;
+    padding-top: 6rem;
+    padding-left: 6rem;
+  }
+  #fin {
+    background-position: 0rem 0rem, 0.6rem 0.6rem, 1.3rem 1.3rem, 2rem 2rem;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    margin-left: 3rem;
+    margin-top: 3rem;
+  }
+  .date {
+    background-size: 10.1rem;
+    width: 12rem;
+    height: 12rem;
+  }
+  #dates {
+    margin-top: 6rem;
+  }
+  #horaires {
+    height: calc(9rem - 1px);
+    width: calc(27rem - 1px);
+    margin-top: 3rem !important;
+  }
+  #map {
+    width: calc(63rem - 1px);
+    height: calc(27rem - 1px);
+    margin-left: 1px;
+    margin-top: calc(3rem + 1px);
+  }
 }
 
     </style>
 	</head>
   <body>
     <div id="main">
-      <div id="content">
-        <div id="mode">Mode</div>
+        <img src="logo.png" id="logo">
         <div id="description">
           <h2>Nouvelle boutique éphémère</h2>
           <h3>dédiée au vintage et à la seconde main</h3>
           <h4>Centre ville de Nantes, 21 allée Bacco</h4>
         </div>
-        <div id="subdescription">
+        <div id="subdescription" class="info">
           Idéale pour un Noël seconde main sous le sapin'!
         </div>
-        <div id="sub">
+        <div id="tiles">
+          <div id="mode">Mode</div>
           <div id="upcycling">Upcycling</div>
+          <div id="deco">Déco</div>
+        </div>
+        <div id="dates">
           <div id="debut" class="date">
             du 10<br>
             nov.<br>
             au
           </div>
+          <div id="fin" class="date">
+            24<br>
+            déc.<br>
+            21<br>
+          </div>
 
         </div>
-
+        <div id="horaires">
+          <h3>Ouvert du lundi au samedi</h3>
+          <h2>De midi à 19h</h2>
+        </div>
+        <div id='map' style=''></div>
       </div>
-    </div>
   </body>
+  <script>
+    let store_location = [-1.551193, 47.212949]
+    mapboxgl.accessToken = 'pk.eyJ1IjoibC12aW5jZW50LWwiLCJhIjoiaDJfM05UMCJ9.l9oR075SSzJY9hXEqaRvoQ';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: store_location,
+      zoom: 15
+    });
+    map.on('load', () => {
+      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        `<h3>Bain de midi</h3><h4>21 allée Baco</h4>Ouvert du mardi au samedi<br>De 12h à 19h`
+      );
+      const marker = new mapboxgl.Marker()
+        .setLngLat(store_location)
+        .setPopup(popup)
+        .addTo(map);
+      marker.togglePopup()
+    })
+  </script>
 </html>
