@@ -2,7 +2,8 @@ name: Download photos
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: true
+  workflow_dispatch:
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
