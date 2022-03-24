@@ -16,5 +16,6 @@ jobs:
       - run: python download_instagram.py
       - run: git add -f downloads/photos/instagram/*
       - run: git commit -m "Add photos"
-      - run: git branch -D page
+      - continue-on-error: true
+        run: git branch -D page
       - run: git branch -m page
