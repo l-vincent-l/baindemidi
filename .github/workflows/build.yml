@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v3
-      - run: git branch -D tmp_branch
+      - continue-on-error: true
+        run: git branch -D tmp_branch
       - run: git checkout -b tmp_branch
       - run: python download_instagram.py
       - run: git add -f downloads/photos/instagram/*
