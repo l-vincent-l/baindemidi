@@ -1,0 +1,5 @@
+defaults:
+  - scope:
+      path: "downloads/photos/instagram"
+    values:
+      photos_insta: true

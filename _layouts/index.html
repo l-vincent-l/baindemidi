@@ -38,27 +38,21 @@
   margin: 3rem auto;
 }
 
-#main > div:not(:last-child) {
-  margin-top: calc(3rem + 1px);
-}
-
 #logo {
-  margin-top: 3rem;
   object-fit: contain;
   width: 100%;
   height: 9rem;
+  margin-top: 3rem;
 }
 
 #description {
-  line-height: 2rem;
   background-color: #fff;
   align-items: center;
-  display: flex;
   flex-direction: column;
   margin-left: 1px;
   padding-left: 1rem;
   padding-right: 1rem;
-  height: calc(22rem - 1px);
+  height: calc(30rem - 1px);
 }
 
 #description >  * {
@@ -68,8 +62,7 @@
 #description > h2 {
   font-weight: 900;
   font-size: xx-large;
-  margin-bottom: 0;
-  padding-top: 2rem;
+  margin: 0;
   text-align: center;
 }
 #description > h3 {
@@ -105,23 +98,8 @@
   font-weight: 900;
 }
 
-#debut {
-  background-position: 1rem 1rem, 0.66rem 0.66rem, 0.33rem 0.33rem, 0rem 0rem;
-  padding-top: 2rem;
-  padding-left: 2rem;
-}
-
-#fin {
-  background-position: 0rem 0rem, 0.33rem 0.33rem, 0.66rem 0.66rem, 1rem 1rem;
-  padding-top: 1rem;
-  padding-left: 2rem;
-  margin-left: 2rem;
-  margin-top: 1rem;
-}
 
 #dates {
-  display: flex;
-  margin-top: 2rem;
   flex-direction: row;
   justify-content: center;
 }
@@ -134,13 +112,12 @@
   background-color: #bccce8;
 }
 
-#mode {
+.mode {
   background-color: #ffd2d7;
 }
 
 
 #tiles {
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -160,23 +137,69 @@
 }
 
 #horaires {
-  display: flex;
   flex-direction: column;
   background-color: #7fffd4;
-  height: calc(9rem - 1px);
   width: calc(14rem - 1px);
   align-items: center;
   align-self: center;
-  margin-top: 1rem !important;
+  margin-top: calc(1rem + 1px)!important;
   text-align: center;
   margin-left: 2px;
   margin-right: 1px;
+  padding-bottom: calc(3rem + 1px);
+  height: calc(30rem - 1px)
 }
 
 #map {
   height: 24rem;
-margin-top: 2rem;
-margin-left: 1px;
+  margin-left: 1px;
+}
+
+#instagram {
+  background-color: #fff;
+  height: calc(9rem - 1px);
+  margin-left: 1px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+#instagram > a > div > img {
+  width: 1rem;
+  height: auto;
+}
+
+.element {
+  padding: 3rem;
+  row-gap: 1rem;
+  display: flex;
+  margin-top: calc(3rem + 1px);
+  justify-content: space-between;
+  line-height: 3rem;
+}
+.element > * {
+  margin: 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(1, 21rem);
+  align-items: end;
+  gap: 3rem;
+  background-color: #fff;
+  margin-left: 1px;
+  height: calc(156rem - 1px);
+}
+
+.gallery > img {
+  width: 14rem;
+  height: 14rem;
+  object-fit: cover;
+}
+
+.gallery, .element {
+  padding: 1rem;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -188,10 +211,7 @@ margin-left: 1px;
   }
   #description {
     width: calc(63rem - 1px);
-    height: calc(12rem - 1px);
-  }
-  #description > h2 {
-    padding-top: 3rem;
+    height: calc(18rem - 1px);
   }
   #subdescription {
     line-height: 3rem;
@@ -212,36 +232,47 @@ margin-left: 1px;
   #tiles > div:not(:first-child) {
     margin-top: unset;
   }
-  #debut {
-    background-position: 2rem 2rem, 1.3rem 1.3rem, 0.6rem 0.6rem, 0rem 0rem;
-    padding-top: 6rem;
-    padding-left: 6rem;
-  }
-  #fin {
-    background-position: 0rem 0rem, 0.6rem 0.6rem, 1.3rem 1.3rem, 2rem 2rem;
-    padding-top: 3rem;
-    padding-left: 3rem;
-    margin-left: 3rem;
-    margin-top: 3rem;
-  }
-  .date {
-    background-size: 10.1rem;
-    width: 12rem;
-    height: 12rem;
-  }
-  #dates {
-    margin-top: 6rem;
-  }
   #horaires {
-    height: calc(9rem - 1px);
-    width: calc(27rem - 1px);
-    margin-top: 3rem !important;
+    height: calc(15rem - 1px);
+    width: calc(39rem - 1px);
+    margin-top: calc(3rem + 1px) !important;
   }
   #map {
     width: calc(63rem - 1px);
     height: calc(27rem - 1px);
     margin-left: 1px;
     margin-top: calc(3rem + 1px);
+  }
+
+  #instagram {
+    margin-top: calc(3rem + 1px) !important;
+    height: calc(9rem - 1px)
+  }
+
+  #mode_details {
+    margin-top: calc(3rem + 1px) !important;
+    height: calc(9rem - 1px);
+    margin-left: 1px;
+    padding-left: 3rem;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 18rem);
+    align-items: end;
+    gap: 3rem;
+    padding-left: 3rem;
+    padding-bottom: 3rem;
+    height: calc(63rem - 1px);
+  }
+
+  .gallery > img {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .gallery, .element {
+    padding: 3rem;
   }
 }
 
@@ -250,41 +281,41 @@ margin-left: 1px;
   <body>
     <div id="main">
         <img src="logo.png" id="logo">
-        <div id="description">
-          <h2>Nouvelle boutique éphémère</h2>
+        <div id="description" class="element">
+          <h2>Nouvelle boutique</h2>
           <h3>dédiée au vintage et à la seconde main</h3>
-          <h4>Centre ville de Nantes, 21 allée Bacco</h4>
+          <h4>Centre ville de Nantes, 18 rue de l’arche sèche</h4>
         </div>
-        <div id="subdescription" class="info">
-          Idéale pour un Noël seconde main sous le sapin'!
-        </div>
-        <div id="tiles">
-          <div id="mode">Mode</div>
+        <div id="tiles" class="element">
+          <div class="mode">Mode</div>
           <div id="upcycling">Upcycling</div>
           <div id="deco">Déco</div>
         </div>
-        <div id="dates">
-          <div id="debut" class="date">
-            du 10<br>
-            nov.<br>
-            au
-          </div>
-          <div id="fin" class="date">
-            24<br>
-            déc.<br>
-            21<br>
-          </div>
-
+        <div id="horaires" class="element">
+          <h2>Horaires</h2>
+          <h3>Mardi-Vendredi&nbsp;: 13h à 18h30</h3>
+          <h3>Samedi&nbsp;: 10h30 à 18h30</h3>
         </div>
-        <div id="horaires">
-          <h3>Ouvert du lundi au samedi</h3>
-          <h2>De midi à 19h</h2>
+        <div id="instagram" class="element">
+          <h3>Suivez-nous !</h3>
+          <a href="https://instagram.com/bain.de.midi">
+            <div>
+              <img src="instagram.png" id="instagram_logo" alt="logo instagram">
+              <span>bain.de.midi</span>
+            </div>
+          </a>
         </div>
-        <div id='map' style=''></div>
+        <div class="gallery element">
+          {% assign image_files = site.static_files | where: "photos_insta", true | sort: 'date' | reverse | slice: 0, 9 %}
+          {% for file in image_files %}
+          <img src="downloads/photos/instagram/{{file.name}}"/>
+          {% endfor %}
+        </div>
+        <div id='map' class="element"></div>
       </div>
   </body>
   <script>
-    let store_location = [-1.551193, 47.212949]
+    let store_location = [-1.5577436, 47.2174206]
     mapboxgl.accessToken = 'pk.eyJ1IjoibC12aW5jZW50LWwiLCJhIjoiaDJfM05UMCJ9.l9oR075SSzJY9hXEqaRvoQ';
     var map = new mapboxgl.Map({
       container: 'map',
@@ -294,7 +325,7 @@ margin-left: 1px;
     });
     map.on('load', () => {
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-        `<h3>Bain de midi</h3><h4>21 allée Baco</h4>Ouvert du mardi au samedi<br>De 12h à 19h`
+        `<h3>Bain de midi</h3><h4>18 rue de l’Arche Sèche</h4>Ouverture:<br>Mar-Ven: 13h-18h30<br>Sam: 10h30-18h30`
       );
       const marker = new mapboxgl.Marker()
         .setLngLat(store_location)
