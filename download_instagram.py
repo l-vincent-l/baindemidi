@@ -3,6 +3,7 @@ import os, time, random
 
 ACCOUNT_USERNAME = os.getenv('INSTAGRAM_USERNAME')
 ACCOUNT_PASSWORD = os.getenv('INSTAGRAM_PASSWORD')
+print(ACCOUNT_USERNAME)
 
 cl = Client()
 cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
