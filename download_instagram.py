@@ -13,8 +13,12 @@ elif not ACCOUNT_PASSWORD:
 else:
     print("Username and password provided")
 
+verification_code = sys.argv[1] if len(sys.argv) >= 2 else ""
+if verification_code:
+    print(f"Got verification code")
+
 cl = Client()
-cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
+cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD, verification_code=verification_code)
 user_id = cl.user_id_from_username("bain.de.midi")
 time.sleep(random.randrange(890, 2500)/1000)
 medias = cl.user_medias(user_id)
