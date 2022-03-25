@@ -284,7 +284,8 @@
         <div id="description" class="element">
           <h2>Nouvelle boutique</h2>
           <h3>dédiée au vintage et à la seconde main</h3>
-          <h4>Centre ville de Nantes, 18 rue de l’arche sèche</h4>
+          <h4>Centre ville de Nantes</h4>
+          <h4>18 rue de l’arche sèche, 44000 Nantes</h4>
         </div>
         <div id="tiles" class="element">
           <div class="mode">Mode</div>
@@ -325,7 +326,7 @@
     });
     map.on('load', () => {
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-        `<h3>Bain de midi</h3><h4>18 rue de l’Arche Sèche</h4>Ouverture:<br>Mar-Ven: 13h-18h30<br>Sam: 10h30-18h30`
+        `<h3>Bain de midi</h3><h4>18 rue de l’Arche Sèche</h4>`
       );
       const marker = new mapboxgl.Marker()
         .setLngLat(store_location)
