@@ -16,6 +16,7 @@ jobs:
       - continue-on-error: true
         run: git branch -D tmp_branch
       - run: git checkout -b tmp_branch
+      - run: echo "$INSTAGRAM_USERNAME"
       - run: pip install -r requirements.txt
       - run: python download_instagram.py
       - run: git add -f downloads/photos/instagram/*
