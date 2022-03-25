@@ -1,8 +1,17 @@
 from instagrapi import Client
-import os, time, random
+import os, time, random, sys
 
 ACCOUNT_USERNAME = os.getenv('INSTAGRAM_USERNAME')
 ACCOUNT_PASSWORD = os.getenv('INSTAGRAM_PASSWORD')
+
+if not ACCOUNT_USERNAME:
+    print("No username provided")
+    sys.exit(2)
+elif not ACCOUNT_PASSWORD:
+    print("No password provided")
+    sys.exit(2)
+else:
+    print("Username and password provided")
 
 cl = Client()
 cl.login(ACCOUNT_USERNAME, ACCOUNT_PASSWORD)
